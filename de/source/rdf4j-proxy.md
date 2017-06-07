@@ -2,7 +2,7 @@
 
 *Stand: 07.06.2017*
 
-## GET JSON
+## SPARQL Proxy
 
 ` GET http://localhost:8084/rdfproxy/SPARQL`
 
