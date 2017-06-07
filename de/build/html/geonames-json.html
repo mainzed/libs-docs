@@ -1,0 +1,1641 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GeoNames JSON &mdash; mainzed tools beta Dokumentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom_color.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Stichwortverzeichnis"
+              href="genindex.html"/>
+        <link rel="search" title="Suche" href="search.html"/>
+    <link rel="top" title="mainzed tools beta Dokumentation" href="index.html"/>
+        <link rel="next" title="RDF4J / OpenRDF Sesame Proxy" href="rdf4j-proxy.html"/>
+        <link rel="prev" title="mainzed tools" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mainzed tools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">API-Dokumentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GeoNames JSON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-json">GET JSON</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requires-authentication">Requires authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#headers">Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-format">Return format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-example-json">Response (Example JSON)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-example-geojson">Response (Example GeoJSON)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-codes">Response Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rdf4j-proxy.html">RDF4J / OpenRDF Sesame Proxy</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hilfe</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Kontakt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impressum.html">Impressum</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mainzed tools</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>GeoNames JSON</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonames-json">
+<span id="geonames-json"></span><h1>GeoNames JSON<a class="headerlink" href="#geonames-json" title="Link zu dieser Überschrift">¶</a></h1>
+<p><em>Stand: 07.06.2017</em></p>
+<div class="section" id="get-json">
+<span id="get-json"></span><h2>GET JSON<a class="headerlink" href="#get-json" title="Link zu dieser Überschrift">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">http://localhost:8084/geonames-json/getJSON</span></code></p>
+<div class="section" id="description">
+<span id="description"></span><h3>Description<a class="headerlink" href="#description" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Gibt eine JSON Repräsentation, bzw. GeoJSON einer GeoNames Ressource zurück.</p>
+</div>
+<div class="section" id="requires-authentication">
+<span id="requires-authentication"></span><h3>Requires authentication<a class="headerlink" href="#requires-authentication" title="Link zu dieser Überschrift">¶</a></h3>
+<p>none</p>
+</div>
+<div class="section" id="parameters">
+<span id="parameters"></span><h3>Parameters<a class="headerlink" href="#parameters" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li><strong>uri</strong> <em>(mendatory)</em> — GeoNames URI oder GeoNames ID (z.B. http://sws.geonames.org/2921044 oder 2921044).</li>
+<li><strong>format</strong> <em>(optional)</em> — geojson, sonst json by default.</li>
+</ul>
+</div>
+<div class="section" id="headers">
+<span id="headers"></span><h3>Headers<a class="headerlink" href="#headers" title="Link zu dieser Überschrift">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">Accept:</span> <span class="pre">application/json</span></code></p>
+<p><code class="docutils literal"><span class="pre">Accept:</span> <span class="pre">application/vnd.geo+json</span></code></p>
+</div>
+<div class="section" id="return-format">
+<span id="return-format"></span><h3>Return format<a class="headerlink" href="#return-format" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Ein JSON Object mit allen Informationen der GeoNames Ressource.</p>
+</div>
+<div class="section" id="response-example-json">
+<span id="response-example-json"></span><h3>Response (Example JSON)<a class="headerlink" href="#response-example-json" title="Link zu dieser Überschrift">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">http://localhost:8084/geonames-json/getJSON?uri=http://sws.geonames.org/2921044</span></code></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;geoname&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;elevation&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;adminCode2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;adminCode1&quot;</span><span class="p">:</span> <span class="s2">&quot;00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="nt">&quot;geonameId&quot;</span><span class="p">:</span> <span class="mi">2921044</span><span class="p">,</span>
+        <span class="nt">&quot;bbox&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;east&quot;</span><span class="p">:</span> <span class="mf">15.04182</span><span class="p">,</span>
+            <span class="nt">&quot;south&quot;</span><span class="p">:</span> <span class="mf">47.27012</span><span class="p">,</span>
+            <span class="nt">&quot;north&quot;</span><span class="p">:</span> <span class="mf">55.05838</span><span class="p">,</span>
+            <span class="nt">&quot;west&quot;</span><span class="p">:</span> <span class="mf">5.86625</span><span class="p">,</span>
+            <span class="nt">&quot;accuracyLevel&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;alternateName&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ii&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ꄓꇩ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ko&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;독일&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;arc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ܓܪܡܢ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ja&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ドイツ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;am&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ጀርመን&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ti&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ጀርመን&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;or&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ଜର୍ମାନୀ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;เยอรมนี&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;เยอรมัน&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ເຢຍລະມັນ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;km&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;អាល្លឺម៉ង់&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ประเทศเยอรมนี&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;สหพันธ์สาธารณรัฐเยอรมนี&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gd&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;A&#39; Ghearmailt&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;br&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alamagn&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;frp&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemagne&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaina&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;an&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ast&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tet&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;oc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanha&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pt&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanha&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ln&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ln&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alémani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isShortName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;eu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ilo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lad&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanu&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ca&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;war&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bm&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alimaɲi&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;qu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alimaniya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;qu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alimanya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isShortName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Allemagne&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nrm&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Allemangne&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ff&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almaañ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;az&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almaniya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ku&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almanya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almanya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kw&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almayn&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ga&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;An Ghearmáin&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Budaaki&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Bundesrepublik Deutschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lb&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Däitschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deitschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pdc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deitschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deitschlånd&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutän&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lmo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Discüssiun sura la fundazziun&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;jbo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;dotygu&#39;e&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Đức&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;se&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duiska&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;se&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duiskka&quot;</span>
+        <span class="p">},</span> <span class="s2">&quot;Duitschland&quot;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;af&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitsland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitsland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fy&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Dútslân&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nds&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Düütschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;li&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duutsjlandj&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vls&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duutsland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ia&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;io&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;it&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;la&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lmo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pms&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;rm&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vec&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germània&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ee&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania nutome&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;eo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germanio&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mt&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ġermanja&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;eo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germanujo&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isShortName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ig&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;na&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nd&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;om&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pam&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sco&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;olo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germuanii&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Girimane&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;scn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Girmania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sq&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gjermani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sq&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gjermania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fur&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gjermanie&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ak&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gyaaman&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ty&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Heremani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/en.wikipedia.org\/wiki\/Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/id.loc.gov\/authorities\/names\/n80125931&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/uk.wikipedia.org\/wiki\/%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;i-Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;IJalimani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;yo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jámánì&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ha&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jamus&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;so&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jarmal&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;so&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jarmalka&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jerman&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;jv&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jerman&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jerman&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;su&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jėrman&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;rmy&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jermaniya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;csb&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Miemieckô&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemačka&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hbs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemačka&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemčija&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sk&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemecko&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;cs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Německo&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Németország&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hsb&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Němska&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Niemcy&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Njemačka&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Njemačka&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ki&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Njeremani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;uz&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Olmoniya&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;yo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Orílẹ́ède Gemani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fi&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Saksa&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Saksamaa&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tpi&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Siaman&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Siamane&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nah&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Teutōtitlan&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mi&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tiamana&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;st&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tôitšhi&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;da&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nb&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sv&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Týskland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tysklandi&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;rn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ubudage&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sw&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Udachi&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sw&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ujerumani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lv&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Vācija&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lt&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Vokietija&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isHistoric&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;West Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gv&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Yn Ghermaan&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;cy&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Yr Almaen&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Zâmani&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ang&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Þēodiscland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Þýskaland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fa&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;آلمان&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ps&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;المان&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ألمانيا&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;المانيا&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ur&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;جرمنی&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ps&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;جرمني\/آلمان&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ug&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;گېرمانىيە&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ku&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ئەڵمانیا&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;he&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;גרמניה&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;yi&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;דייטשלאנד&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;el&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Γερμανία&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kk&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Алмания&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Герман&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;os&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Герман&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;cv&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германи&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mk&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германија&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ru&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;udm&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;be&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германія&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ӂермания&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Немачка&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;uk&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Німеччина&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;be&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Нямеччына&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Олмон&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;uz&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Олмония&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;dz&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ཇཱར་མ་ནི&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;འཇར་མན་&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hy&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Գերմանիա&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ka&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;გერმანია&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जमिन&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जर्मनी&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जर्मनी&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ne&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जर्मनी&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;જર્મની&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;te&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ఙర్మని&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ಜರ್ಮನಿ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ta&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ஜெர்மன்&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ta&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ஜெர்மனி&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ml&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ജര്\u200Dമനി&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ml&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ജര്\u200Dമ്മനി&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bn&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;জার্মানি&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;as&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;জাৰ্মানি&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;my&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ဂျာမဏီ&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;si&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ජර්මනිය&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zh&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;德国&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ja&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ドイツ連邦共和国&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;toponymName&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;asciiName&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fcl&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;population&quot;</span><span class="p">:</span> <span class="mi">81802257</span><span class="p">,</span>
+        <span class="nt">&quot;srtm3&quot;</span><span class="p">:</span> <span class="mi">303</span><span class="p">,</span>
+        <span class="nt">&quot;alternateNames&quot;</span><span class="p">:</span> <span class="s2">&quot;A&#39; Ghearmailt,Alamagn,Alemagne,Alemaina,Alemana,Alemanha,Alemani,Alemania,Alemanu,Alemanya,Alemaña,Alimaniya,Alimanya,Alimaɲi,Allemagne,Allemangne,Almaan,Almaañ,Almanija,Almaniya,Almanya,Almayn,Alémani,An Ghearmain,An Ghearmáin,Budaaki,Bundesrepublik Deutschland,Daeitschland,Deitschland,Deitschlånd,Deutaen,Deutschland,Deutän,Discuessiun sura la fundazziun,Discüssiun sura la fundazziun,Dueuetschland,Duiska,Duiskka,Duitschland,Duitsland,Dutslan,Duutsjlandj,Duutsland,Däitschland,Dútslân,Düütschland,Federal Republic of Germany,GJuc,German,Germani,Germania,Germania nutome,Germanija,Germanio,Germanja,Germanujo,Germany,Germuanii,Germània,Girimane,Girmania,Gjermani,Gjermania,Gjermanie,Gyaaman,Heremani,IJalimani,Jamani,Jamus,Jarmal,Jarmalka,Jerman,Jermaniya,Jámánì,Jėrman,Miemiecko,Miemieckô,Nemachka,Nemacka,Nemačka,Nemcija,Nemecko,Nemetorszag,Nemska,Nemčija,Niemcy,Nimeccina,Njamechchyna,Njemacka,Njemačka,Njeremani,Németország,Německo,Němska,Olmon,Olmonija,Olmoniya,Orileede Gemani,Orílẹ́ède Gemani,Saksa,Saksamaa,Siaman,Siamane,THeodiscland,THyskaland,Teutotitlan,Teutōtitlan,Tiamana,Toitshi,Tyskland,Tysklandi,Tôitšhi,Týskland,Ubudage,Udachi,Ujerumani,Vacija,Vokietija,Vācija,West Germany,Yn Ghermaan,Yr Almaen,Zamani,Zermania,Zâmani,alman,almanya,de guo,dog-il,doitsu,doitsu lian bang gong he guo,dotygu&#39;e,germania,grmn,grmnyh,i-Germany,jamina,jarmani,jerman,jermani,jrmny,jrmny\/alman,narmani,prathes yexrmni,shphanth satharnrath yexrmni,yexrman,yexrmni,Þýskaland,Þēodiscland,Đức,Ġermanja,Γερμανία,Алмания,Герман,Германи,Германия,Германија,Германія,Немачка,Нямеччына,Німеччина,Олмон,Олмония,Ӂермания,Գերմանիա,גרמניה,דייטשלאנד,آلمان,ألمانيا,ئەڵمانیا,المان,المانيا,جرمني\/آلمان,جرمنی,گېرمانىيە,ܓܪܡܢ,जमिन,जर्मनी,জার্মানি,জাৰ্মানি,જર્મની,ଜର୍ମାନୀ,ஜெர்மனி,ஜெர்மன்,ఙర్మని,ಜರ್ಮನಿ,ജര്\u200Dമനി,ജര്\u200Dമ്മനി,ජර්මනිය,ประเทศเยอรมนี,สหพันธ์สาธารณรัฐเยอรมนี,เยอรมนี,เยอรมัน,ເຢຍລະມັນ,ཇཱར་མ་ནི,འཇར་མན་,ဂျာမဏီ,გერმანია,ጀርመን,អាល្លឺម៉ង់,ドイツ,ドイツ連邦共和国,德国,ꄓꇩ,독일&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;adminName2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;countryCode&quot;</span><span class="p">:</span> <span class="s2">&quot;DE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fclName&quot;</span><span class="p">:</span> <span class="s2">&quot;country, state, region,...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;countryName&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fcodeName&quot;</span><span class="p">:</span> <span class="s2">&quot;independent political entity&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;adminName1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">51.5</span><span class="p">,</span>
+        <span class="nt">&quot;fcode&quot;</span><span class="p">:</span> <span class="s2">&quot;PCLI&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;continentCode&quot;</span><span class="p">:</span> <span class="s2">&quot;EU&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="response-example-geojson">
+<span id="response-example-geojson"></span><h3>Response (Example GeoJSON)<a class="headerlink" href="#response-example-geojson" title="Link zu dieser Überschrift">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">http://localhost:8084/geonames-json/getJSON?uri=http://sws.geonames.org/2921044&amp;format=geojson</span></code></p>
+<p><img alt="" src="_images/geojson-ex.png" /></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;features&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;geometries&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">51.5</span><span class="p">],</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span>
+            <span class="p">},</span> <span class="p">{</span>
+                <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="p">[</span><span class="mf">5.86625</span><span class="p">,</span> <span class="mf">55.05838</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">5.86625</span><span class="p">,</span> <span class="mf">47.27012</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">15.04182</span><span class="p">,</span> <span class="mf">47.27012</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">15.04182</span><span class="p">,</span> <span class="mf">55.05838</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">5.86625</span><span class="p">,</span> <span class="mf">55.05838</span><span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span>
+            <span class="p">}],</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;GeometryCollection&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;geoname&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;elevation&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;adminCode2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;adminCode1&quot;</span><span class="p">:</span> <span class="s2">&quot;00&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;lng&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+                <span class="nt">&quot;geonameId&quot;</span><span class="p">:</span> <span class="mi">2921044</span><span class="p">,</span>
+                <span class="nt">&quot;bbox&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;east&quot;</span><span class="p">:</span> <span class="mf">15.04182</span><span class="p">,</span>
+                    <span class="nt">&quot;south&quot;</span><span class="p">:</span> <span class="mf">47.27012</span><span class="p">,</span>
+                    <span class="nt">&quot;north&quot;</span><span class="p">:</span> <span class="mf">55.05838</span><span class="p">,</span>
+                    <span class="nt">&quot;west&quot;</span><span class="p">:</span> <span class="mf">5.86625</span><span class="p">,</span>
+                    <span class="nt">&quot;accuracyLevel&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;alternateName&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ii&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ꄓꇩ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ko&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;독일&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;arc&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ܓܪܡܢ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ja&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ドイツ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;am&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ጀርመን&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ti&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ጀርመን&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;or&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ଜର୍ମାନୀ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;เยอรมนี&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;เยอรมัน&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ເຢຍລະມັນ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;km&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;អាល្លឺម៉ង់&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ประเทศเยอรมนี&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;th&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;สหพันธ์สาธารณรัฐเยอรมนี&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gd&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;A&#39; Ghearmailt&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;br&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alamagn&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;frp&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemagne&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaina&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;an&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ast&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gl&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tet&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemaña&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;oc&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanha&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pt&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanha&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ln&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ln&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alémani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isShortName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;eu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ilo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lad&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanu&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ca&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tl&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;war&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bm&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alimaɲi&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;qu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alimaniya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;qu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Alimanya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isShortName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Allemagne&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nrm&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Allemangne&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ff&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almaañ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;az&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almaniya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ku&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almanya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tr&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almanya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kw&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Almayn&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ga&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;An Ghearmáin&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Budaaki&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Bundesrepublik Deutschland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lb&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Däitschland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deitschland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pdc&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deitschland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deitschlånd&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutän&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lmo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Discüssiun sura la fundazziun&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;jbo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;dotygu&#39;e&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Đức&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;se&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duiska&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;se&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duiskka&quot;</span>
+                <span class="p">},</span> <span class="s2">&quot;Duitschland&quot;</span><span class="p">,</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;af&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitsland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nl&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitsland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fy&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Dútslân&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nds&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Düütschland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;li&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duutsjlandj&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vls&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Duutsland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ia&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;io&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;it&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;la&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lmo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pms&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;rm&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;vec&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sc&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germània&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ee&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania nutome&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;eo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germanio&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mt&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ġermanja&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;eo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germanujo&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isShortName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ig&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;na&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nd&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;om&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pam&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sco&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;olo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Germuanii&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Girimane&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;scn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Girmania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sq&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gjermani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sq&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gjermania&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fur&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gjermanie&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ak&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Gyaaman&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ty&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Heremani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/en.wikipedia.org\/wiki\/Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/id.loc.gov\/authorities\/names\/n80125931&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;http:\/\/uk.wikipedia.org\/wiki\/%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;i-Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;IJalimani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;yo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jámánì&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ha&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jamus&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;so&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jarmal&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;so&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jarmalka&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jerman&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;jv&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jerman&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jerman&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;su&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jėrman&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;rmy&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Jermaniya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;csb&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Miemieckô&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bs&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemačka&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hbs&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemačka&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sl&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemčija&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sk&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Nemecko&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;cs&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Německo&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Németország&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hsb&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Němska&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;pl&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Niemcy&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bs&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Njemačka&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hr&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Njemačka&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ki&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Njeremani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;uz&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Olmoniya&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;yo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Orílẹ́ède Gemani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fi&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Saksa&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Saksamaa&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tpi&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Siaman&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Siamane&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nah&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Teutōtitlan&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mi&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tiamana&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;st&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tôitšhi&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;da&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nb&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;nn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sv&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Týskland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kl&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tysklandi&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;rn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ubudage&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sw&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Udachi&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sw&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ujerumani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lv&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Vācija&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;lt&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Vokietija&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;isHistoric&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;West Germany&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gv&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Yn Ghermaan&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;cy&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Yr Almaen&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Zâmani&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ang&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Þēodiscland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Þýskaland&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fa&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;آلمان&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ps&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;المان&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ألمانيا&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;المانيا&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ur&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;جرمنی&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ps&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;جرمني\/آلمان&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ug&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;گېرمانىيە&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ku&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ئەڵمانیا&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;he&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;גרמניה&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;yi&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;דייטשלאנד&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;el&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Γερμανία&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kk&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Алмания&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Герман&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;os&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Герман&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;cv&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германи&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mk&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германија&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ru&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;udm&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;be&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Германія&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Ӂермания&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;sr&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Немачка&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;uk&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Німеччина&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;be&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Нямеччына&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;tg&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Олмон&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;uz&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Олмония&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;dz&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ཇཱར་མ་ནི&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;འཇར་མན་&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hy&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Գերմանիա&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ka&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;გერმანია&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mr&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जमिन&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जर्मनी&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;mr&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जर्मनी&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ne&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;जर्मनी&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;gu&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;જર્મની&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;te&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ఙర్మని&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;kn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ಜರ್ಮನಿ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ta&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ஜெர்மன்&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ta&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ஜெர்மனி&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ml&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ജര്\u200Dമനി&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ml&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ജര്\u200Dമ്മനി&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;bn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;জার্মানি&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;as&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;জাৰ্মানি&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;my&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ဂျာမဏီ&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;si&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ජර්මනිය&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zh&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;德国&quot;</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="nt">&quot;isPreferredName&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ja&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;ドイツ連邦共和国&quot;</span>
+                <span class="p">}],</span>
+                <span class="nt">&quot;toponymName&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;asciiName&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fcl&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;population&quot;</span><span class="p">:</span> <span class="mi">81802257</span><span class="p">,</span>
+                <span class="nt">&quot;srtm3&quot;</span><span class="p">:</span> <span class="mi">303</span><span class="p">,</span>
+                <span class="nt">&quot;alternateNames&quot;</span><span class="p">:</span> <span class="s2">&quot;A&#39; Ghearmailt,Alamagn,Alemagne,Alemaina,Alemana,Alemanha,Alemani,Alemania,Alemanu,Alemanya,Alemaña,Alimaniya,Alimanya,Alimaɲi,Allemagne,Allemangne,Almaan,Almaañ,Almanija,Almaniya,Almanya,Almayn,Alémani,An Ghearmain,An Ghearmáin,Budaaki,Bundesrepublik Deutschland,Daeitschland,Deitschland,Deitschlånd,Deutaen,Deutschland,Deutän,Discuessiun sura la fundazziun,Discüssiun sura la fundazziun,Dueuetschland,Duiska,Duiskka,Duitschland,Duitsland,Dutslan,Duutsjlandj,Duutsland,Däitschland,Dútslân,Düütschland,Federal Republic of Germany,GJuc,German,Germani,Germania,Germania nutome,Germanija,Germanio,Germanja,Germanujo,Germany,Germuanii,Germània,Girimane,Girmania,Gjermani,Gjermania,Gjermanie,Gyaaman,Heremani,IJalimani,Jamani,Jamus,Jarmal,Jarmalka,Jerman,Jermaniya,Jámánì,Jėrman,Miemiecko,Miemieckô,Nemachka,Nemacka,Nemačka,Nemcija,Nemecko,Nemetorszag,Nemska,Nemčija,Niemcy,Nimeccina,Njamechchyna,Njemacka,Njemačka,Njeremani,Németország,Německo,Němska,Olmon,Olmonija,Olmoniya,Orileede Gemani,Orílẹ́ède Gemani,Saksa,Saksamaa,Siaman,Siamane,THeodiscland,THyskaland,Teutotitlan,Teutōtitlan,Tiamana,Toitshi,Tyskland,Tysklandi,Tôitšhi,Týskland,Ubudage,Udachi,Ujerumani,Vacija,Vokietija,Vācija,West Germany,Yn Ghermaan,Yr Almaen,Zamani,Zermania,Zâmani,alman,almanya,de guo,dog-il,doitsu,doitsu lian bang gong he guo,dotygu&#39;e,germania,grmn,grmnyh,i-Germany,jamina,jarmani,jerman,jermani,jrmny,jrmny\/alman,narmani,prathes yexrmni,shphanth satharnrath yexrmni,yexrman,yexrmni,Þýskaland,Þēodiscland,Đức,Ġermanja,Γερμανία,Алмания,Герман,Германи,Германия,Германија,Германія,Немачка,Нямеччына,Німеччина,Олмон,Олмония,Ӂермания,Գերմանիա,גרמניה,דייטשלאנד,آلمان,ألمانيا,ئەڵمانیا,المان,المانيا,جرمني\/آلمان,جرمنی,گېرمانىيە,ܓܪܡܢ,जमिन,जर्मनी,জার্মানি,জাৰ্মানি,જર્મની,ଜର୍ମାନୀ,ஜெர்மனி,ஜெர்மன்,ఙర్మని,ಜರ್ಮನಿ,ജര്\u200Dമനി,ജര്\u200Dമ്മനി,ජර්මනිය,ประเทศเยอรมนี,สหพันธ์สาธารณรัฐเยอรมนี,เยอรมนี,เยอรมัน,ເຢຍລະມັນ,ཇཱར་མ་ནི,འཇར་མན་,ဂျာမဏီ,გერმანია,ጀርመን,អាល្លឺម៉ង់,ドイツ,ドイツ連邦共和国,德国,ꄓꇩ,독일&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;adminName2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;countryCode&quot;</span><span class="p">:</span> <span class="s2">&quot;DE&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fclName&quot;</span><span class="p">:</span> <span class="s2">&quot;country, state, region,...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;countryName&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fcodeName&quot;</span><span class="p">:</span> <span class="s2">&quot;independent political entity&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;adminName1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">51.5</span><span class="p">,</span>
+                <span class="nt">&quot;fcode&quot;</span><span class="p">:</span> <span class="s2">&quot;PCLI&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;continentCode&quot;</span><span class="p">:</span> <span class="s2">&quot;EU&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}],</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="response-codes">
+<span id="response-codes"></span><h3>Response Codes<a class="headerlink" href="#response-codes" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li><em>200 OK</em> — Everything worked fine.</li>
+<li><em>500 Internal Server Error</em> — Some error on server side.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rdf4j-proxy.html" class="btn btn-neutral float-right" title="RDF4J / OpenRDF Sesame Proxy" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="mainzed tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+         <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> -&nbsp; Mainzer Zentrum für Digitalität in den Geistes- und Kulturwissenschaften (mainzed) 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
