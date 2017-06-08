@@ -1,6 +1,6 @@
 # GeoNames JSON
 
-*Stand: 07.06.2017*
+*Stand: 08.06.2017*
 
 ## GET JSON
 
@@ -8,7 +8,9 @@
 
 ### Description
 
-Gibt eine JSON Repräsentation, bzw. GeoJSON einer GeoNames Ressource zurück.
+Gibt eine JSON Repräsentation, bzw. GeoJSON einer *GeoNames* Ressource zurück.
+
+Hierzu wird die GeoNames **[API](http://www.geonames.org/export/web-services.html)** `api.geonames.org/get` genutzt, welche by default keine JSON, bzw. GeoJSON Repräsentationen anbietet.
 
 ### Requires authentication
 
