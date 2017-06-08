@@ -21,6 +21,7 @@ Inhaltsverzeichnis
    :maxdepth: 2
 
    geonames-json
+   gettytgn-json
    rdf4j-proxy
 
 .. _help-docs:

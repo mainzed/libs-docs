@@ -1,0 +1,567 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getty TGN JSON &mdash; mainzed tools beta Dokumentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom_color.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Stichwortverzeichnis"
+              href="genindex.html"/>
+        <link rel="search" title="Suche" href="search.html"/>
+    <link rel="top" title="mainzed tools beta Dokumentation" href="index.html"/>
+        <link rel="next" title="RDF4J / OpenRDF Sesame Proxy" href="rdf4j-proxy.html"/>
+        <link rel="prev" title="GeoNames JSON" href="geonames-json.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mainzed tools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">API-Dokumentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="geonames-json.html">GeoNames JSON</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getty TGN JSON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-json">GET JSON</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requires-authentication">Requires authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#headers">Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-format">Return format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-example-json">Response (Example JSON)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-example-geojson">Response (Example GeoJSON)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-codes">Response Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rdf4j-proxy.html">RDF4J / OpenRDF Sesame Proxy</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hilfe</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Kontakt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impressum.html">Impressum</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mainzed tools</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getty TGN JSON</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getty-tgn-json">
+<span id="getty-tgn-json"></span><h1>Getty TGN JSON<a class="headerlink" href="#getty-tgn-json" title="Link zu dieser Überschrift">¶</a></h1>
+<p><em>Stand: 08.06.2017</em></p>
+<div class="section" id="get-json">
+<span id="get-json"></span><h2>GET JSON<a class="headerlink" href="#get-json" title="Link zu dieser Überschrift">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">http://localhost:8084/gettytgn-json/getJSON</span></code></p>
+<div class="section" id="description">
+<span id="description"></span><h3>Description<a class="headerlink" href="#description" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Gibt eine JSON Repräsentation, bzw. GeoJSON einer <em>Getty Thesaurus of Geographic Names</em> Ressource zurück.</p>
+<p>Hierzu wird der <strong><a class="reference external" href="http://vocab.getty.edu/sparql">SPARQL endpoint</a></strong> von Getty genutzt.</p>
+<p><strong><a class="reference external" href="http://vocab.getty.edu/sparql?query=prefix+ontogeo%3A+%3Chttp%3A%2F%2Fwww.ontotext.com%2Fowlim%2Fgeo%23%3E%0D%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2003%2F01%2Fgeo%2Fwgs84_pos%23%3E%0D%0Aprefix+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0Aprefix+tgn%3A+%3Chttp%3A%2F%2Fvocab.getty.edu%2Ftgn%2F%3E%0D%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0Aprefix+gvp%3A+%3Chttp%3A%2F%2Fvocab.getty.edu%2Fontology%23%3E%0D%0Aprefix+skosxl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2008%2F05%2Fskos-xl%23%3E%0D%0Aselect+%3Fname+%3Flat+%3Flong+%3FparentString+%3Fpreflabel+%3Faltlabel+%3Fscopenote+%3Fplacetypepreferred+%3Fplacetypenonpreferred+%3Fid+where+%7B%0D%0A+%3Fplace+gvp%3AprefLabelGVP+%5Bskosxl%3AliteralForm+%3Fname%5D+.%0D%0A+%3Fplace+foaf%3Afocus+%5Bgeo%3Alat+%3Flat%5D.%0D%0A+%3Fplace+foaf%3Afocus+%5Bgeo%3Along+%3Flong%5D.%0D%0A+%3Fplace+gvp%3AparentString+%3FparentString+.%0D%0A+%3Fplace+skosxl%3AprefLabel+%5Bskosxl%3AliteralForm+%3Fpreflabel%5D+.%0D%0A+%3Fplace+skosxl%3AaltLabel+%5Bskosxl%3AliteralForm+%3Faltlabel%5D+.%0D%0A+%3Fplace+skos%3AscopeNote+%5Brdf%3Avalue+%3Fscopenote%5D+.%0D%0A+%3Fplace+gvp%3AplaceTypePreferred+%5Bgvp%3AprefLabelGVP+%5Bskosxl%3AliteralForm+%3Fplacetypepreferred%5D%5D+.%0D%0A+%3Fplace+gvp%3AplaceTypeNonPreferred+%5Bgvp%3AprefLabelGVP+%5Bskosxl%3AliteralForm+%3Fplacetypenonpreferred%5D%5D+.%0D%0A+%3Fplace+dc%3Aidentifier+%3Fid.%0D%0A+FILTER%28%3Fplace%3D%3Chttp%3A%2F%2Fvocab.getty.edu%2Ftgn%2F7000084%3E%29%0D%0A%7D&amp;_implicit=false&amp;implicit=true&amp;_equivalent=false&amp;_form=%2Fsparql">Beispielabfrage</a></strong> für http://vocab.getty.edu/tgn/7000084 (Deutschland):</p>
+<div class="highlight-sparql"><div class="highlight"><pre><span></span><span class="k">prefix</span> <span class="nn">ontogeo</span><span class="p">:</span> <span class="nl">&lt;http://www.ontotext.com/owlim/geo#&gt;</span>
+<span class="k">prefix</span> <span class="nn">geo</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;</span>
+<span class="k">prefix</span> <span class="nn">skos</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2004/02/skos/core#&gt;</span>
+<span class="k">prefix</span> <span class="nn">tgn</span><span class="p">:</span> <span class="nl">&lt;http://vocab.getty.edu/tgn/&gt;</span>
+<span class="k">prefix</span> <span class="nn">foaf</span><span class="p">:</span> <span class="nl">&lt;http://xmlns.com/foaf/0.1/&gt;</span>
+<span class="k">prefix</span> <span class="nn">gvp</span><span class="p">:</span> <span class="nl">&lt;http://vocab.getty.edu/ontology#&gt;</span>
+<span class="k">prefix</span> <span class="nn">skosxl</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2008/05/skos-xl#&gt;</span>
+<span class="k">select</span> <span class="nv">?name</span> <span class="nv">?lat</span> <span class="nv">?long</span> <span class="nv">?parentString</span> <span class="nv">?preflabel</span> <span class="nv">?altlabel</span> <span class="nv">?scopenote</span> <span class="nv">?placetypepreferred</span> <span class="nv">?placetypenonpreferred</span> <span class="nv">?id</span> <span class="k">where</span> <span class="p">{</span>
+ <span class="nv">?place</span> <span class="nn">gvp</span><span class="p">:</span><span class="nt">prefLabelGVP</span> <span class="p">[</span><span class="nn">skosxl</span><span class="p">:</span><span class="nt">literalForm</span> <span class="nv">?name</span><span class="p">]</span> <span class="p">.</span>
+ <span class="nv">?place</span> <span class="nn">foaf</span><span class="p">:</span><span class="nt">focus</span> <span class="p">[</span><span class="nn">geo</span><span class="p">:</span><span class="nt">lat</span> <span class="nv">?lat</span><span class="p">].</span>
+ <span class="nv">?place</span> <span class="nn">foaf</span><span class="p">:</span><span class="nt">focus</span> <span class="p">[</span><span class="nn">geo</span><span class="p">:</span><span class="nt">long</span> <span class="nv">?long</span><span class="p">].</span>
+ <span class="nv">?place</span> <span class="nn">gvp</span><span class="p">:</span><span class="nt">parentString</span> <span class="nv">?parentString</span> <span class="p">.</span>
+ <span class="nv">?place</span> <span class="nn">skosxl</span><span class="p">:</span><span class="nt">prefLabel</span> <span class="p">[</span><span class="nn">skosxl</span><span class="p">:</span><span class="nt">literalForm</span> <span class="nv">?preflabel</span><span class="p">]</span> <span class="p">.</span>
+ <span class="nv">?place</span> <span class="nn">skosxl</span><span class="p">:</span><span class="nt">altLabel</span> <span class="p">[</span><span class="nn">skosxl</span><span class="p">:</span><span class="nt">literalForm</span> <span class="nv">?altlabel</span><span class="p">]</span> <span class="p">.</span>
+ <span class="nv">?place</span> <span class="nn">skos</span><span class="p">:</span><span class="nt">scopeNote</span> <span class="p">[</span><span class="nn">rdf</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?scopenote</span><span class="p">]</span> <span class="p">.</span>
+ <span class="nv">?place</span> <span class="nn">gvp</span><span class="p">:</span><span class="nt">placeTypePreferred</span> <span class="p">[</span><span class="nn">gvp</span><span class="p">:</span><span class="nt">prefLabelGVP</span> <span class="p">[</span><span class="nn">skosxl</span><span class="p">:</span><span class="nt">literalForm</span> <span class="nv">?placetypepreferred</span><span class="p">]]</span> <span class="p">.</span>
+ <span class="nv">?place</span> <span class="nn">gvp</span><span class="p">:</span><span class="nt">placeTypeNonPreferred</span> <span class="p">[</span><span class="nn">gvp</span><span class="p">:</span><span class="nt">prefLabelGVP</span> <span class="p">[</span><span class="nn">skosxl</span><span class="p">:</span><span class="nt">literalForm</span> <span class="nv">?placetypenonpreferred</span><span class="p">]]</span> <span class="p">.</span>
+ <span class="nv">?place</span> <span class="nn">dc</span><span class="p">:</span><span class="nt">identifier</span> <span class="nv">?id</span><span class="p">.</span>
+ <span class="k">FILTER</span><span class="p">(</span><span class="nv">?place</span><span class="o">=</span><span class="nl">&lt;http://vocab.getty.edu/tgn/7000084&gt;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requires-authentication">
+<span id="requires-authentication"></span><h3>Requires authentication<a class="headerlink" href="#requires-authentication" title="Link zu dieser Überschrift">¶</a></h3>
+<p>none</p>
+</div>
+<div class="section" id="parameters">
+<span id="parameters"></span><h3>Parameters<a class="headerlink" href="#parameters" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li><strong>uri</strong> <em>(mendatory)</em> — Getty TGN URI (z.B. http://vocab.getty.edu/tgn/7000084).</li>
+<li><strong>format</strong> <em>(optional)</em> — geojson, sonst json by default.</li>
+</ul>
+</div>
+<div class="section" id="headers">
+<span id="headers"></span><h3>Headers<a class="headerlink" href="#headers" title="Link zu dieser Überschrift">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">Accept:</span> <span class="pre">application/json</span></code></p>
+<p><code class="docutils literal"><span class="pre">Accept:</span> <span class="pre">application/vnd.geo+json</span></code></p>
+</div>
+<div class="section" id="return-format">
+<span id="return-format"></span><h3>Return format<a class="headerlink" href="#return-format" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Ein JSON Object mit allen Informationen der Getty TGN Ressource.</p>
+</div>
+<div class="section" id="response-example-json">
+<span id="response-example-json"></span><h3>Response (Example JSON)<a class="headerlink" href="#response-example-json" title="Link zu dieser Überschrift">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">http://localhost:8084/gettytgn-json/getJSON?uri=http://vocab.getty.edu/tgn/7000084</span></code></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;scopenotes&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;The area of north-central Europe occupied by what is now modern Germany measures some 137,828 square miles in size. Teutons, Celts, Slavs, and Balts inhabited it by the first century BCE. Part of the area was ruled by Romans, then Carolingians. Through the centuries, it was often broken into various states based on ethnic groups including the Alemanni, Bavarians, Upper and Lower Franks, Thuringians, and Frisians. It undertook expansion during the 19th to mid-20th centuries. The official language is German, although Low German is still spoken in the rural North. The 2004 estimated population was 82,633,200.&quot;</span>
+    <span class="p">}],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;altlabels&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Bundesrepublik Deutschland&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland, Bundesrepublik&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany, Federal Republic of&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;République fédérale d&#39;Allemagne&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;República Federal de Alemania&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanha&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitsland&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;it&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;German&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitschland&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ru&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Федеративая Республика Германия&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zh&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;德意志联邦共和国&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;جُهور ةً ألماه اَ الاتحاد ةً&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;GM&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;GM00&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ISO276&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;DEU&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;DE&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;BRD&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutsches Reich&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ISO280&quot;</span>
+    <span class="p">}],</span>
+    <span class="nt">&quot;parentString&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe, World&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;playetypespreferred&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;nations&quot;</span>
+    <span class="p">}],</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7000084&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">51.5</span><span class="p">,</span>
+    <span class="nt">&quot;long&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+    <span class="nt">&quot;preflabels&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Allemagne&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;la&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ru&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zh&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;德国&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ألماه اَ&quot;</span>
+    <span class="p">}],</span>
+    <span class="nt">&quot;playetypesnonpreferred&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;primary political entities&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;republics&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;independent political entities&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;independent sovereign nations&quot;</span>
+    <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="response-example-geojson">
+<span id="response-example-geojson"></span><h3>Response (Example GeoJSON)<a class="headerlink" href="#response-example-geojson" title="Link zu dieser Überschrift">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">http://localhost:8084/gettytgn-json/getJSON?uri=http://vocab.getty.edu/tgn/7000084&amp;format=geojson</span></code></p>
+<p><img alt="" src="_images/geojson-ex2.png" /></p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">51.5</span><span class="p">],</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;scopenotes&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;The area of north-central Europe occupied by what is now modern Germany measures some 137,828 square miles in size. Teutons, Celts, Slavs, and Balts inhabited it by the first century BCE. Part of the area was ruled by Romans, then Carolingians. Through the centuries, it was often broken into various states based on ethnic groups including the Alemanni, Bavarians, Upper and Lower Franks, Thuringians, and Frisians. It undertook expansion during the 19th to mid-20th centuries. The official language is German, although Low German is still spoken in the rural North. The 2004 estimated population was 82,633,200.&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;altlabels&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Bundesrepublik Deutschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland, Bundesrepublik&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Federal Republic of Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany, Federal Republic of&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;République fédérale d&#39;Allemagne&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;República Federal de Alemania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemanha&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitsland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;it&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;German&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Duitschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ru&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Федеративая Республика Германия&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zh&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;德意志联邦共和国&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;جُهور ةً ألماه اَ الاتحاد ةً&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;GM&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;GM00&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ISO276&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;DEU&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;DE&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;BRD&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutsches Reich&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ISO280&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;parentString&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe, World&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;playetypespreferred&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;nations&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;7000084&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">51.5</span><span class="p">,</span>
+        <span class="nt">&quot;long&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span>
+        <span class="nt">&quot;preflabels&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germany&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Allemagne&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Alemania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;la&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Germania&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ru&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Германия&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zh&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;德国&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;ar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;ألماه اَ&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;playetypesnonpreferred&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;primary political entities&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;republics&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;independent political entities&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;independent sovereign nations&quot;</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="response-codes">
+<span id="response-codes"></span><h3>Response Codes<a class="headerlink" href="#response-codes" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li><em>200 OK</em> — Everything worked fine.</li>
+<li><em>500 Internal Server Error</em> — Some error on server side.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rdf4j-proxy.html" class="btn btn-neutral float-right" title="RDF4J / OpenRDF Sesame Proxy" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="geonames-json.html" class="btn btn-neutral" title="GeoNames JSON" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+         <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> -&nbsp; Mainzer Zentrum für Digitalität in den Geistes- und Kulturwissenschaften (mainzed) 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'beta',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
