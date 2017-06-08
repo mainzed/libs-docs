@@ -20,6 +20,7 @@ Inhaltsverzeichnis
    :caption: API-Dokumentation
    :maxdepth: 2
 
+   endpoints
    geonames-json
    gettytgn-json
    rdf4j-proxy
