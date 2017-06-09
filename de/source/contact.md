@@ -2,8 +2,6 @@
 
 ![mainzed logo]( _images/mainzedlogo.svg)
 
-Bei weiteren Fragen kontaktieren Sie uns bitte per Email oder Twitter.
+Bei weiteren Fragen kontaktieren Sie uns bitte per Email: `info@mainzed.org`.
 
-info@mainzed.org
-
-[@_mainzed](https://twitter.com/_mainzed)
+News über: ![](_images/twittericon.png)  `@_mainzed`
