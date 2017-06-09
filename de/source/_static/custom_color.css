@@ -4,9 +4,6 @@
 	letter-spacing: 0.01em !important;
 }
 /* info boxes */
-.admonition-title {
-	background: #000000 !important;
-}
 .admonition {
 	background:#f2f2f2 !important;
 }
@@ -48,6 +45,12 @@ div.version {
 }
 .wy-side-nav-search img {
 	background-color:#f2f2f2;
+}
+.wy-nav-content-wrap {
+	background: #ffffff !important;
+}
+.wy-nav-content {
+	background: #ffffff !important;
 }
 a {
 	color:#000000;
