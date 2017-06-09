@@ -1,11 +1,17 @@
 Dokumentation der »mainzed dev-tools«
 =====================================
 
-.. note:: Die »mainzed dev-tools« stellen kleine Webservices aus einzelnen Forschungsbereichen der digitalen Geisteswissenschaften zur Verfügung, welche insbesondere von der Digital Humanities Scientific Community genutzt werden können. Einzelne Partner des mainzed-Netzwerks implementieren und pflegen diese Webservices zur Anbindung an ihre lokalen Webanwendungen. Zur Zeit stehen insbesondere Tools in den Bereichen Linked Data und Triplestores, sowie zu räumlichen und zeitlichen Fragestellungen zur Verfügung.
+Unter »mainzed dev-tools« stellen Entwicklerinnen und Entwickler aus dem mainzed-Netzwerk der Scienticic Community der Digital Humanities kleine Webservices zur Verfügung.
 
-.. warning:: Diese Dokumentation befindet sich noch im Entwurfsmodus! Keine Gewähr auf Vollständigkeit und Richtigkeit.
+Die Webservices werden aus dem mainzed-Netzwerk heraus zur Anbindung an gemeinsam im Kontext des mainzed entwickelten Webanwendungen implementiert und gepflegt.
 
-.. tip:: last build 09.06.2017
+Zur Zeit stehen insbesondere Tools in den Bereichen Linked Data und Triplestores, sowie zu räumlichen und zeitlichen Fragestellungen zur Verfügung.
+
+Das mainzed – Mainzer Zentrum für Digitalität in den Geistes- und Kulturwissenschaften - ist ein Zusammenschluss sechs wissenschaftlicher Einrichtungen in Mainz zur Bündelung der Kompetenzen im Feld der Digital Humanities (s.a. `<http://mainzed.org>`_).
+
+.. attention:: Diese Dokumentation befindet sich noch im Entwurfsmodus! Keine Gewähr auf Vollständigkeit und Richtigkeit.
+
+.. hint:: Letzte Änderung: 09. Juni 2017.
 
 Inhaltsverzeichnis
 ==================
