@@ -1,15 +1,11 @@
-mainzed tools
-=============
+Dokumentation der »mainzed dev-tools«
+=====================================
 
-.. image:: _images/wrench-99248_640.png
-    :width: 400 px
-    :align: center
-
-.. note:: mainzed tools bietet Web-Services im Kontext digitaler Geisteswissenschaften.
+.. note:: Die »mainzed dev-tools« stellen kleine Webservices aus einzelnen Forschungsbereichen der digitalen Geisteswissenschaften zur Verfügung, welche insbesondere von der Digital Humanities Scientific Community genutzt werden können. Einzelne Partner des mainzed-Netzwerks implementieren und pflegen diese Webservices zur Anbindung an ihre lokalen Webanwendungen. Zur Zeit stehen insbesondere Tools in den Bereichen Linked Data und Triplestores, sowie zu räumlichen und zeitlichen Fragestellungen zur Verfügung.
 
 .. warning:: Diese Dokumentation befindet sich noch im Entwurfsmodus! Keine Gewähr auf Vollständigkeit und Richtigkeit.
 
-.. tip:: last build 07.06.2017
+.. tip:: last build 09.06.2017
 
 Inhaltsverzeichnis
 ==================
