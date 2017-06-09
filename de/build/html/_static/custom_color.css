@@ -3,6 +3,9 @@
 	font-family: "Roboto" !important;
 	letter-spacing: 0.01em !important;
 }
+footer {
+	color: #555555;
+}
 /* info boxes */
 .admonition {
 	background:#f2f2f2 !important;
@@ -30,6 +33,7 @@ div.version {
 .wy-menu-vertical header,.wy-menu-vertical p.caption {
 	color:black;
 	text-transform: none !important;
+	font-size: 83% !important;
 }
 .wy-side-nav-search {
 	background-color:#f2f2f2;
