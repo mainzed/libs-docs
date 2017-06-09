@@ -1,5 +1,5 @@
 # GitHub
 
-* [geonames json](https://github.com/mainzed/tools-geonames-json)
-* [gettytgn json](https://github.com/mainzed/tools-gettytgn-json)
-* [rdf4j proxy](https://github.com/mainzed/tools-rdf4j-proxy)
+* [mainzed dev-tools](https://github.com/search?q=topic%3Atools+org%3Amainzed+fork%3Atrue)
+* [labeling system](https://github.com/search?q=topic%3Alabelingsystem+org%3Amainzed+fork%3Atrue)
+* [maus](https://github.com/mainzed/maus)
