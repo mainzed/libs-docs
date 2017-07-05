@@ -1,4 +1,4 @@
-# mainzed tools Docs
+# mainzed libs Docs
 
 This repository provides the documentation for the mainzed tools build using Read The Docs.
 
