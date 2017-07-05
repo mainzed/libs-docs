@@ -2,7 +2,7 @@
 
 This repository provides the documentation for the mainzed tools build using Read The Docs.
 
-Get the latest `build` [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mainzed/tools-docs/master/de/build/html/index.html).
+Get the latest `build` [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mainzed/libs-docs/master/de/build/html/index.html).
 
 ## Setup
 
