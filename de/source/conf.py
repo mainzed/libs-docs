@@ -59,7 +59,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = u'mainzed dev-tools'
+project = u'mainzed libs'
 copyright = u'Mainzer Zentrum für Digitalität in den Geistes- und Kulturwissenschaften (mainzed)'
 author = u'Florian Thiery'
 

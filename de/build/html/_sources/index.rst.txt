@@ -1,7 +1,7 @@
-Dokumentation der »mainzed dev-tools«
+Dokumentation der »mainzed libs«
 =====================================
 
-Unter »mainzed dev-tools« stellen Entwicklerinnen und Entwickler aus dem mainzed-Netzwerk der Scienticic Community der Digital Humanities kleine Webservices zur Verfügung.
+Unter »mainzed libs« stellen Entwicklerinnen und Entwickler aus dem mainzed-Netzwerk der Scienticic Community der Digital Humanities kleine Webservices zur Verfügung.
 
 Die Webservices werden aus dem mainzed-Netzwerk heraus zur Anbindung an gemeinsam im Kontext des mainzed entwickelten Webanwendungen implementiert und gepflegt.
 

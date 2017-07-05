@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Endpoints &mdash; mainzed dev-tools beta version Dokumentation</title>
+  <title>Endpoints &mdash; mainzed libs beta version Dokumentation</title>
   
 
   
@@ -35,9 +35,9 @@
         <link rel="index" title="Stichwortverzeichnis"
               href="genindex.html"/>
         <link rel="search" title="Suche" href="search.html"/>
-    <link rel="top" title="mainzed dev-tools beta version Dokumentation" href="index.html"/>
+    <link rel="top" title="mainzed libs beta version Dokumentation" href="index.html"/>
         <link rel="next" title="GeoNames JSON" href="geonames-json.html"/>
-        <link rel="prev" title="Dokumentation der »mainzed dev-tools«" href="index.html"/> 
+        <link rel="prev" title="Dokumentation der »mainzed libs«" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -56,7 +56,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> mainzed dev-tools
+            <a href="index.html" class="icon icon-home"> mainzed libs
           
 
           
@@ -118,7 +118,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">mainzed dev-tools</a>
+          <a href="index.html">mainzed libs</a>
         
       </nav>
 
@@ -163,32 +163,29 @@
 <span id="endpoints"></span><h1>Endpoints<a class="headerlink" href="#endpoints" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="geonames-json">
 <span id="geonames-json"></span><h2>GeoNames JSON<a class="headerlink" href="#geonames-json" title="Link zu dieser Überschrift">¶</a></h2>
-<p><em>vorläufig</em></p>
-<p><code class="docutils literal"><span class="pre">http://ls-dev.i3mainz.hs-mainz.de/geonames-json/getJSON</span></code></p>
+<p><code class="docutils literal"><span class="pre">http://libs.mainzed.org/geonames-json/getJSON</span></code></p>
 <p>Beispiele:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://ls-dev.i3mainz.hs-mainz.de/geonames-json/getJSON?uri=http://sws.geonames.org/2921044">GeoNames Deutschland JSON</a></li>
-<li><a class="reference external" href="http://ls-dev.i3mainz.hs-mainz.de/geonames-json/getJSON?uri=http://sws.geonames.org/2921044&amp;format=geojson">GeoNames Deutschland GeoJSON</a></li>
+<li><a class="reference external" href="http://libs.mainzed.org/geonames-json/getJSON?uri=http://sws.geonames.org/2921044">GeoNames Deutschland JSON</a></li>
+<li><a class="reference external" href="http://libs.mainzed.org/geonames-json/getJSON?uri=http://sws.geonames.org/2921044&amp;format=geojson">GeoNames Deutschland GeoJSON</a></li>
 </ul>
 </div>
 <div class="section" id="getty-tgn-json">
 <span id="getty-tgn-json"></span><h2>Getty TGN JSON<a class="headerlink" href="#getty-tgn-json" title="Link zu dieser Überschrift">¶</a></h2>
-<p><em>vorläufig</em></p>
-<p><code class="docutils literal"><span class="pre">http://ls-dev.i3mainz.hs-mainz.de/gettytgn-json/getJSON</span></code></p>
+<p><code class="docutils literal"><span class="pre">http://libs.mainzed.org/gettytgn-json/getJSON</span></code></p>
 <p>Beispiele:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://ls-dev.i3mainz.hs-mainz.de/gettytgn-json/getJSON?uri=http://vocab.getty.edu/tgn/7000084">Getty TGN Deutschland JSON</a></li>
-<li><a class="reference external" href="http://ls-dev.i3mainz.hs-mainz.de/gettytgn-json/getJSON?uri=http://vocab.getty.edu/tgn/7000084&amp;format=geojson">Getty TGN Deutschland GeoJSON</a></li>
+<li><a class="reference external" href="http://libs.mainzed.org/gettytgn-json/getJSON?uri=http://vocab.getty.edu/tgn/7000084">Getty TGN Deutschland JSON</a></li>
+<li><a class="reference external" href="http://libs.mainzed.org/gettytgn-json/getJSON?uri=http://vocab.getty.edu/tgn/7000084&amp;format=geojson">Getty TGN Deutschland GeoJSON</a></li>
 </ul>
 </div>
 <div class="section" id="rdf4j-openrdf-sesame-proxy">
 <span id="rdf4j-openrdf-sesame-proxy"></span><h2>RDF4J / OpenRDF Sesame Proxy<a class="headerlink" href="#rdf4j-openrdf-sesame-proxy" title="Link zu dieser Überschrift">¶</a></h2>
-<p><em>vorläufig</em></p>
-<p><code class="docutils literal"><span class="pre">http://ls-dev.i3mainz.hs-mainz.de/rdfproxy/SPARQL</span></code></p>
+<p><code class="docutils literal"><span class="pre">http://libs.mainzed.org/rdfproxy/SPARQL</span></code></p>
 <p>Beispiele:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://143.93.114.135/rdfproxy/SPARQL?serverURL=http://ls-dev.i3mainz.hs-mainz.de/rdf4j-server&amp;repo=labelingsystem&amp;query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o.%20}%20LIMIT%20100&amp;format=xml">Labeling System as SPARQL XML</a></li>
-<li><a class="reference external" href="http://143.93.114.135/rdfproxy/SPARQL?serverURL=http://higeomes.i3mainz.hs-mainz.de/openrdf-sesame&amp;repo=textelsem&amp;query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o.%20}%20LIMIT%20100&amp;format=json">TexTelSem as SPARQL JSON</a></li>
+<li><a class="reference external" href="http://libs.mainzed.org/rdfproxy/SPARQL?serverURL=http://ls-dev.i3mainz.hs-mainz.de/rdf4j-server&amp;repo=labelingsystem&amp;query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o.%20}%20LIMIT%20100&amp;format=xml">Labeling System as SPARQL XML</a></li>
+<li><a class="reference external" href="http://libs.mainzed.org/rdfproxy/SPARQL?serverURL=http://higeomes.i3mainz.hs-mainz.de/openrdf-sesame&amp;repo=textelsem&amp;query=SELECT%20*%20WHERE%20{%20?s%20?p%20?o.%20}%20LIMIT%20100&amp;format=json">TexTelSem as SPARQL JSON</a></li>
 </ul>
 </div>
 </div>
@@ -203,7 +200,7 @@
         <a href="geonames-json.html" class="btn btn-neutral float-right" title="GeoNames JSON" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Dokumentation der »mainzed dev-tools«" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Dokumentation der »mainzed libs«" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
